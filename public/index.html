@@ -6,21 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adok Transfer - Трансферные услуги</title>
     <link rel="stylesheet" href="styles.css">
+
     <style>
+           * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
             background-image: url('back.jpeg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            position: relative;
         }
 
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Background Blur Effect */
         .blur-background {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
@@ -29,346 +40,339 @@
             z-index: -1;
         }
 
-        header, footer {
-            background-color: rgba(33, 11, 70, 0);
-            padding: 20px 40px;
-            color: #fff;
+        /* Header Styles */
+        .header {
+            background-color: rgba(33, 11, 70, 0.9);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+
+        .logo {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.9;
+        }
+
+        /* Navigation Styles */
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.875rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a:hover {
+            color: #9f86c0;
+        }
+
+        /* Contact Buttons */
+        .contact-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .contact-button {
+            padding: 0.625rem 1.25rem;
+            border-radius: 0.5rem;
+            border: none;
+            background-color: #351873;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-button:hover {
+            transform: scale(1.05);
+            background-color: #4a2494;
+        }
+
+        /* Burger Menu */
+        .burger-menu {
+            display: none;
+            flex-direction: column;
+            gap: 0.375rem;
+            cursor: pointer;
+            padding: 0.625rem;
+            background: transparent;
+            border: none;
+        }
+
+        .burger-line {
+            width: 1.875rem;
+            height: 0.1875rem;
+            background-color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 5rem;
+            left: 0;
+            width: 100%;
+            background-color: rgba(33, 11, 70, 0.95);
+            padding: 1.25rem;
             backdrop-filter: blur(10px);
         }
-        header {
-    background-color: rgba(33, 11, 70, 0);
-    padding: 20px 40px;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap; /* Позволяет переносить элементы */
-    backdrop-filter: blur(10px);
-}
 
-header div {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.social {
-    display: flex;
-    gap: 10px; /* Расстояние между кнопками */
-    flex-wrap: wrap; /* Позволяет перенос кнопок на новые строки при уменьшении экрана */
-    justify-content: center; /* Выравнивание по центру */
-    margin-top: 20px;
-}
-
-.social a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px 15px;
-    border-radius: 8px;
-    border: 2px solid #351873;
-    background-color: #351873;
-    transition: all 0.4s;
-    width: 120px; /* Фиксированная ширина для одинакового размера */
-    text-align: center; /* Центрирование текста внутри кнопок */
-}
-
-.social a:hover {
-    transform: scale(1.1);
-}
-
-
-        .social {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            margin-top: 20px;
+        .mobile-nav.active {
+            display: block;
         }
 
-        .social a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 10px 15px;
-            border-radius: 8px;
-            border: 2px solid #351873;
-            background-color: #351873;
-            transition: all 0.4s;
-        }
-
-        .social a:hover {
-            transform: scale(1.1);
-        }
-
-        nav ul {
+        .mobile-nav-links {
             list-style: none;
-            padding: 0;
-            margin: 20px 0 0;
             display: flex;
-            gap: 20px;
-            justify-content: center;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin: 0;
+            padding: 0;
         }
 
-        nav ul li a {
+        .mobile-nav-links a {
             color: #fff;
             text-decoration: none;
-            font-weight: bold;
-            padding: 10px 15px;
-            border-radius: 8px;
-            border: 2px solid #351873;
-            background-color: #351873;
-            transition: all 0.4s;
+            font-size: 1.125rem;
+            display: block;
+            padding: 0.625rem;
+            text-align: center;
+            transition: color 0.3s ease;
         }
 
-        nav ul li a:hover {
-            transform: scale(1.1);
+        .mobile-nav-links a:hover {
+            color: #9f86c0;
         }
 
+        .mobile-contact-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.9375rem;
+            margin-top: 1.25rem;
+        }
+
+        /* Main Content Styles */
         .container {
             max-width: 1200px;
-            margin: auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0);
-            border-radius: 12px;
+            margin: 0 auto;
+            padding: 1.25rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
             backdrop-filter: blur(5px);
         }
 
-        h1, h2 {
-            color: #4a148c;
-            font-size: 2.5em;
-            margin-bottom: 20px;
+        section {
+            padding: 5rem 0 2rem;
         }
 
-        #about, #services, #tariffs, #contact {
-            padding: 40px 0;
+        h1, h2, h3 {
+            color: #4a148c;
+            margin-bottom: 1.25rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        /* About Section */
+        #about {
+            text-align: center;
+            padding-top: 6rem;
         }
 
         #about img {
-            max-width: 300px;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: 12.5rem;
+            margin-bottom: 1.25rem;
         }
 
-        #reasons, #tariffs {
-            padding: 40px 0;
-        }
-        .reasons-list {
-    display: flex;
-    flex-wrap: nowrap; /* Не переносить элементы на новую строку */
-    gap: 20px;
-    overflow-x: auto; /* Добавляем горизонтальный скролл, если блоки не помещаются */
-}
-        .reasons-list {
+        .action-buttons {
+            display: flex;
+            gap: 1.25rem;
+            justify-content: center;
+            margin-top: 1.25rem;
             flex-wrap: wrap;
-            gap: 20px;
+        }
+
+        .action-button {
+            padding: 0.625rem 1.25rem;
+            background-color: #352a68;
+            color: #fff;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .action-button:hover {
+            transform: scale(1.05);
+            background-color: #4a2494;
+        }
+
+        /* Reasons Section */
+        .reasons-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            justify-content: center;
         }
 
         .reason {
-            background: rgba(240, 240, 255, 0);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            width: 100%;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0);
-            text-align: center;
+            flex: 1;
+            min-width: 250px;
             max-width: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            padding: 1.25rem;
+            text-align: center;
             backdrop-filter: blur(3px);
         }
 
         .reason img {
             width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 10px;
+            border-radius: 0.5rem;
+            margin-bottom: 0.625rem;
         }
 
-        .service, .tariff {
-            background: rgba(240, 240, 255, 0);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            width: 100%;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0);
+        /* Services Section */
+        .service {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
             backdrop-filter: blur(3px);
         }
 
-        .service h3, .tariff h3 {
-            color: #4a148c;
-            margin-bottom: 10px;
+        /* Tariffs Section */
+        .tariff {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
+            backdrop-filter: blur(3px);
         }
 
-        .blob-btn {
-            position: relative;
-            padding: 20px 46px;
-            margin-bottom: 30px;
+        /* Contact Section */
+        #contact {
             text-align: center;
-            text-transform: uppercase;
-            color: #0505A9;
-            font-size: 16px;
-            font-weight: bold;
-            background-color: transparent;
-            outline: none;
-            border: none;
-            transition: color 0.5s;
-            cursor: pointer;
-            border-radius: 30px;
         }
 
-        .blob-btn:before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            border: 2px solid #0505A9;
-            border-radius: 30px;
+        .social {
+            display: flex;
+            gap: 1.25rem;
+            justify-content: center;
+            margin-top: 1.25rem;
+            flex-wrap: wrap;
         }
 
-        .blob-btn:after {
-            content: "";
-            position: absolute;
-            left: 3px;
-            top: 3px;
-            width: 100%;
-            height: 100%;
-            transition: all 0.3s 0.2s;
-            border-radius: 30px;
+        .social a {
+            min-width: 120px;
         }
 
-        .blob-btn:hover {
-            color: #FFFFFF;
+        /* Footer */
+        footer {
+            background-color: rgba(33, 11, 70, 0.9);
+            color: #fff;
+            text-align: center;
+            padding: 1.25rem;
+            margin-top: 2rem;
+            backdrop-filter: blur(10px);
         }
 
-        .blob-btn:hover:after {
-            transition: all 0.3s;
-            left: 0;
-            top: 0;
-            border-radius: 30px;
-        }
-
-        .blob-btn__inner {
-            overflow: hidden;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 30px;
-            background: #ffffff;
-        }
-
-        .blob-btn__blobs {
-            position: relative;
-            display: block;
-            height: 100%;
-            filter: url('#goo');
-        }
-
-        .blob-btn__blob {
-            position: absolute;
-            top: 2px;
-            width: calc(100% / 4);
-            height: 100%;
-            background: #0505A9;
-            border-radius: 100%;
-            transform: translate3d(0, 150%, 0) scale(1.4);
-            transition: transform 0.45s;
-        }
-
-        .blob-btn:hover .blob-btn__blob {
-            transform: translateZ(0) scale(1.4);
-        }
-     
-
-        @media (max-width: 768px) {
-            header, footer {
-                flex-direction: column;
-                padding: 10px 20px;
-                text-align: center;
+        /* Responsive Styles */
+        @media (max-width: 64rem) { /* 1024px */
+            .header {
+                padding: 0.9375rem 1.25rem;
             }
 
-            .social {
-                flex-direction: row;
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 10px;
-                margin-bottom: 10px;
+            .nav-links {
+                gap: 1.25rem;
             }
-            nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center; /* Выровнять по центру */
-    gap: 20px;
-}
 
-nav ul li {
-    margin: 0;
-}
+            .contact-button {
+                padding: 0.5rem 0.9375rem;
+            }
+        }
 
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px 15px;
-    border-radius: 8px;
-    border: 2px solid #351873;
-    background-color: #351873;
-    transition: all 0.4s;
-}
+        @media (max-width: 48rem) { /* 768px */
+            .nav {
+                display: none;
+            }
 
-nav ul li a:hover {
-    transform: scale(1.1);
-}
+            .burger-menu {
+                display: flex;
+            }
+
+            .burger-menu.active .burger-line:nth-child(1) {
+                transform: rotate(45deg) translate(0.4rem, 0.4rem);
+            }
+
+            .burger-menu.active .burger-line:nth-child(2) {
+                opacity: 0;
+            }
+
+            .burger-menu.active .burger-line:nth-child(3) {
+                transform: rotate(-45deg) translate(0.4rem, -0.4rem);
+            }
+
+            .mobile-nav.active {
+                z-index: 1;
+            }
 
             .container {
-                padding: 10px;
-                width: 100%;
-                box-sizing: border-box;
+                padding: 1rem;
             }
 
-            h1, h2 {
-                font-size: 1.5em;
+            h2 {
+                font-size: 1.5rem;
             }
 
-            .social a, nav ul li a {
-                padding: 6px;
-                font-size: 0.9em;
-            }
-
-            #contact .social {
+            .action-buttons {
                 flex-direction: column;
-                align-items: center;
-                gap: 15px;
-                margin-top: 20px;
             }
 
-            #contact .container {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding: 20px;
-                text-align: center;
+            .reason {
+                min-width: 100%;
             }
+        }
 
-            button {
-                width: 100%;
-                padding: 15px;
-                margin-bottom: 10px;
-                font-size: 1em;
-            }
-            .reasons-list {
-                flex-direction: column;
-                align-items: center;
+        @media (min-width: 48.0625rem) { /* 769px */
+            .mobile-nav {
+                display: none !important;
             }
         }
     </style>
@@ -376,23 +380,42 @@ nav ul li a:hover {
 </head>
 <body>
     <div class="blur-background"></div>
-    <header>
-        <div>
-            <img src="logo194.png" alt="Adok Transfer Logo" style="height: 50px;">
-            <div class="social">
-                <a href="https://wa.me/996507256256" target="_blank">WhatsApp</a>
-                <a href="https://t.me/adok_transfer" target="_blank">Telegram</a>
-                <a href="https://www.instagram.com/adok_transfer/?igsh=bjhuanA2cXd5NXI%3D" target="_blank">Instagram</a>
+    <header class="header">
+        <div class="header-container">
+            <a href="/" class="logo">Adok Transfer</a>
+            
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#tariffs">Тарифы</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+                <div class="contact-buttons">
+                    <a href="tel:+996507256256" class="contact-button">+996 507 256 256</a>
+                    <a href="https://wa.me/996507256256" class="contact-button">WhatsApp</a>
+                </div>
+            </nav>
+
+            <div class="burger-menu">
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
             </div>
         </div>
-        <nav class="nav-wrapper">
-            <ul class="nav-links">
-                <li><a href="#services">Наши услуги</a></li>
-                <li><a href="#tariffs">Тарифы</a></li>
-                <li><a href="#contact">Контакты</a></li>
-            </ul>
-        </nav>
     </header>
+
+    <nav class="mobile-nav">
+        <ul class="mobile-nav-links">
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#tariffs">Тарифы</a></li>
+            <li><a href="#contact">Контакты</a></li>
+        </ul>
+        <div class="mobile-contact-buttons">
+            <a href="tel:+996507256256" class="contact-button">+996 507 256 256</a>
+            <a href="https://wa.me/996507256256" class="contact-button">WhatsApp</a>
+        </div>
+    </nav>
+
     <section id="about">
         <div class="container">
             <img src="logo192.png" alt="Adok Transfer Logo">
@@ -503,6 +526,32 @@ nav ul li a:hover {
             <p>&copy; 2024 Adok Transfer. Все права защищены.</p>
         </div>
     </footer>
+
+    <script>
+        const burgerMenu = document.querySelector('.burger-menu');
+        const mobileNav = document.querySelector('.mobile-nav');
+
+        burgerMenu.addEventListener('click', () => {
+            burgerMenu.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        });
+
+        // Закрытие мобильного меню при клике на ссылку
+        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                burgerMenu.classList.remove('active');
+                mobileNav.classList.remove('active');
+            });
+        });
+
+        // Закрытие мобильного меню при скролле
+        window.addEventListener('scroll', () => {
+            if (mobileNav.classList.contains('active')) {
+                burgerMenu.classList.remove('active');
+                mobileNav.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 
 </html>
