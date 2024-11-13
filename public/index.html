@@ -38,7 +38,48 @@
             align-items: center;
             backdrop-filter: blur(10px);
         }
-        
+        header {
+    background-color: rgba(33, 11, 70, 0);
+    padding: 20px 40px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Позволяет переносить элементы */
+    backdrop-filter: blur(10px);
+}
+
+header div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.social {
+    display: flex;
+    gap: 10px; /* Расстояние между кнопками */
+    flex-wrap: wrap; /* Позволяет перенос кнопок на новые строки при уменьшении экрана */
+    justify-content: center; /* Выравнивание по центру */
+    margin-top: 20px;
+}
+
+.social a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 2px solid #351873;
+    background-color: #351873;
+    transition: all 0.4s;
+    width: 120px; /* Фиксированная ширина для одинакового размера */
+    text-align: center; /* Центрирование текста внутри кнопок */
+}
+
+.social a:hover {
+    transform: scale(1.1);
+}
+
 
         .social {
             display: flex;
