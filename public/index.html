@@ -42,7 +42,7 @@
 
         /* Header Styles */
         .header {
-            background-color: rgba(33, 11, 70, 0.9);
+            background-color: rgba(33, 11, 70, 0.0000000000000000000000009);
             padding: 1rem 2rem;
             position: fixed;
             width: 100%;
@@ -87,7 +87,7 @@
         }
 
         .nav-links a {
-            color: #fff;
+            color: #3b308a;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
@@ -146,7 +146,7 @@
             top: 5rem;
             left: 0;
             width: 100%;
-            background-color: rgba(33, 11, 70, 0.95);
+            background-color: rgba(33, 11, 70, 0.00000000000000000000000095);
             padding: 1.25rem;
             backdrop-filter: blur(10px);
         }
@@ -165,7 +165,7 @@
         }
 
         .mobile-nav-links a {
-            color: #fff;
+            color: #ffffff;
             text-decoration: none;
             font-size: 1.125rem;
             display: block;
@@ -175,7 +175,8 @@
         }
 
         .mobile-nav-links a:hover {
-            color: #9f86c0;
+            color: #ffffff;
+            text-align: center;
         }
 
         .mobile-contact-buttons {
@@ -183,6 +184,8 @@
             flex-direction: column;
             gap: 0.9375rem;
             margin-top: 1.25rem;
+            text-align: center;
+
         }
 
         /* Main Content Styles */
@@ -190,7 +193,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 1.25rem;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.00000000000000000000000091);
             border-radius: 0.75rem;
             backdrop-filter: blur(5px);
         }
@@ -216,9 +219,19 @@
         }
 
         #about img {
-            max-width: 12.5rem;
-            margin-bottom: 1.25rem;
+            max-width: 14.5rem;
+            margin-bottom: 3.25rem;
         }
+        .adok-logo {
+    width: 250px; /* Увеличьте размер изображения */
+    height: auto; /* Сохраните соотношение сторон */
+    border-radius: 20px; /* Округлите углы */
+    transition: transform 0.3s ease; /* Добавьте анимацию при наведении */
+}
+
+.adok-logo:hover {
+    transform: scale(1.2); /* Добавьте небольшой эффект увеличения при наведении */
+}
 
         .action-buttons {
             display: flex;
@@ -255,7 +268,7 @@
             flex: 1;
             min-width: 250px;
             max-width: 300px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.00000000000000000000000091);
             border-radius: 0.5rem;
             padding: 1.25rem;
             text-align: center;
@@ -270,7 +283,7 @@
 
         /* Services Section */
         .service {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.00000000000000000000000091);
             border-radius: 0.5rem;
             padding: 1.25rem;
             margin-bottom: 1.25rem;
@@ -279,7 +292,7 @@
 
         /* Tariffs Section */
         .tariff {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.00000000000000000000000091);
             border-radius: 0.5rem;
             padding: 1.25rem;
             margin-bottom: 1.25rem;
@@ -305,8 +318,8 @@
 
         /* Footer */
         footer {
-            background-color: rgba(33, 11, 70, 0.9);
-            color: #fff;
+            background-color: rgba(33, 11, 70, 0.00000000000000000000000099);
+            color: #000000;
             text-align: center;
             padding: 1.25rem;
             margin-top: 2rem;
@@ -391,7 +404,8 @@
                     <li><a href="#contact">Контакты</a></li>
                 </ul>
                 <div class="contact-buttons">
-                    <a href="tel:+996507256256" class="contact-button">+996 507 256 256</a>
+
+                    <a href="https://www.instagram.com/adok_transfer/?igsh=bjhuanA2cXd5NXI%3D" class="contact-button">Instagram</a>
                     <a href="https://wa.me/996507256256" class="contact-button">WhatsApp</a>
                 </div>
             </nav>
@@ -406,19 +420,19 @@
 
     <nav class="mobile-nav">
         <ul class="mobile-nav-links">
-            <li><a href="#services">Услуги</a></li>
-            <li><a href="#tariffs">Тарифы</a></li>
-            <li><a href="#contact">Контакты</a></li>
+            <a href="#services" class="contact-button">Услуги</a>
+            <a href="#tariffs" class="contact-button">Тарифы</a>
+            <a href="#contact" class="contact-button">Контакты</a>
         </ul>
         <div class="mobile-contact-buttons">
-            <a href="tel:+996507256256" class="contact-button">+996 507 256 256</a>
+            <a href="https://www.instagram.com/adok_transfer/?igsh=bjhuanA2cXd5NXI%3D" class="contact-button">Instagram</a>
             <a href="https://wa.me/996507256256" class="contact-button">WhatsApp</a>
         </div>
     </nav>
 
     <section id="about">
         <div class="container">
-            <img src="logo192.png" alt="Adok Transfer Logo">
+            <img src="logo192.png" alt="Adok Transfer Logo" class="adok-logo">
             <h2>Трансферные услуги по всему Кыргызстану и за его пределами</h2>
             <p>Adok предлагает высококачественные трансферные услуги и пассажирские перевозки по всему Кыргызстану. Наш флот современных комфортных автомобилей готов доставить вас в любую точку страны с комфортом и безопасностью.</p>
             <div style="display: flex; gap: 20px; margin-top: 20px;">
