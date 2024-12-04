@@ -7,6 +7,8 @@
     <title>Atlas Transfer - Трансферные услуги</title>
     <link rel="stylesheet" href="styles.css">
 
+
+    
     <style>
            * {
             margin: 0;
@@ -326,6 +328,16 @@
             backdrop-filter: blur(10px);
         }
 
+
+.iframe_gis{
+       display: flex;
+       align-items: center;
+       justify-content: center;
+
+
+height: 60vh;
+    }
+
         /* Responsive Styles */
         @media (max-width: 64rem) { /* 1024px */
             .header {
@@ -436,7 +448,7 @@
             <img src="logo192.png" alt="Atlas Transfer Logo" class="Atlas-logo">
             <h2>Трансферные услуги по всему Кыргызстану и за его пределами</h2>
             <p>Atlas предлагает высококачественные трансферные услуги и пассажирские перевозки по всему Кыргызстану. Наш флот современных комфортных автомобилей готов доставить вас в любую точку страны с комфортом и безопасностью.</p>
-            <div style="display: flex; gap: 20px; margin-top: 20px;">
+            <div style="display: flex; gap: 20px; margin-top: 20px; align-items: center; justify-content: center;">
                 <a href="https://wa.me/996507256256" target="_blank" style="display: inline-block; padding: 10px 20px; background-color: #352a68; color: #fff; border-radius: 8px; cursor: pointer; text-decoration: none;">Заказать трансфер</a>
                 <a href="https://wa.me/996507256256" target="_blank" style="display: inline-block; padding: 10px 20px; background-color: #352a68; color: #fff; border-radius: 8px; cursor: pointer; text-decoration: none;">Заказать трезвого водителя</a>
                                 
@@ -529,7 +541,22 @@
                     Информацию по доплатам в отдаленные районы можно получить по номеру WhatsApp.</p>
             </div>
         </div>
-    </section>
+        <section id="reviews">
+            <h2>Отзывы наших клиентов</h2>
+            <iframe id="big_light_70000001094342823" frameborder="0" class="iframe_gis container" sandbox="allow-modals allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"></iframe>
+            <script type="text/javascript">
+                ((r, p) => {
+                    const l = document.getElementById(r);
+                    l.contentWindow.document.open(),
+                    l.contentWindow.document.write(decodeURIComponent(escape(atob(p)))),
+                    l.contentWindow.document.close()
+                })(
+                    "big_light_70000001094342823",
+                    "PGhlYWQ+PHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiPgogICAgd2luZG93Ll9fc2l6ZV9fPSdiaWcnOwogICAgd2luZG93Ll9fdGhlbWVfXz0nbGlnaHQnOwogICAgd2luZG93Ll9fYnJhbmNoSWRfXz0nNzAwMDAwMDEwOTQzNDI4MjMnCiAgICB3aW5kb3cuX19vcmdJZF9fPScnCiAgIDwvc2NyaXB0PjxzY3JpcHQgY3Jvc3NvcmlnaW49ImFub255bW91cyIgdHlwZT0ibW9kdWxlIiBzcmM9Imh0dHBzOi8vZGlzay4yZ2lzLmNvbS93aWRnZXQtY29uc3RydWN0b3IvYXNzZXRzL2lmcmFtZS5qcyI+PC9zY3JpcHQ+PGxpbmsgcmVsPSJtb2R1bGVwcmVsb2FkIiBjcm9zc29yaWdpbj0iYW5vbnltb3VzIiBocmVmPSJodHRwczovL2Rpc2suMmdpcy5jb20vd2lkZ2V0LWNvbnN0cnVjdG9yL2Fzc2V0cy9kZWZhdWx0cy5qcyI+PGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBjcm9zc29yaWdpbj0iYW5vbnltb3VzIiBocmVmPSJodHRwczovL2Rpc2suMmdpcy5jb20vd2lkZ2V0LWNvbnN0cnVjdG9yL2Fzc2V0cy9kZWZhdWx0cy5jc3MiPjwvaGVhZD48Ym9keT48ZGl2IGlkPSJpZnJhbWUiPjwvZGl2PjwvYm9keT4="
+                );
+            </script>
+        </section>
+        
 
     <section id="contact">
         <div class="container">
